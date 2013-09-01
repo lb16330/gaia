@@ -271,6 +271,64 @@ $a=TitoloPersonale::filtra([['volontario',$f]]);
         </div>
         
     </div>
+
+    <!--Visualizzazione e modifica riserve-->
+    <?php 
+    $r = $v->riserve();
+    if (count($r) > 0) { ?>
+    <div class="span6">
+        <div class="row-fluid">
+            <h4>
+                <i class="icon-pause muted"></i>
+                Riserve
+            </h4>
+            
+        </div>
+        
+        <div class="row-fluid">
+            
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <th>Stato</th>
+                    <th>Inizio</th>
+                    <th>Fine</th>
+                    <th>Azioni</th>
+                </thead>
+                <?php foreach ( $r as $_r ) { ?>
+                    <tr <?php if ($_r->attuale()) { ?> class="success"<?php } ?>>
+                        <td>
+                            <strong><?php echo $conf['riserve'][$_r->stato]; ?></strong>
+                        </td>
+                        
+                        <td>
+                            <i class="icon-calendar muted"></i>
+                            <?php echo $_r->inizio()->inTesto(false); ?>
+                        </td>
+                        
+                        <td>
+                            <?php if ($_r->fine) { ?>
+                                <i class="icon-time muted"></i>
+                                <?php echo $_r->fine()->inTesto(false); ?>
+                            <?php } else { ?>
+                                <i class="icon-question-sign muted"></i>
+                                Indeterminato
+                            <?php } ?>
+                        </td>
+                        <td>
+                            <?php if ( $_r->attuale() ){ ?>
+                                <a class="btn btn-small btn-danger" href="?p=utente.riserva.termina&id=<?= $app->id; ?>" title="Termina Riserva">
+                                    Termina
+                                </a> 
+                            <?php } ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+          </div>
+          </div>
+    <?php } ?>
+
+
     <!--Visualizzazione e modifica titoli utente-->
     <?php $titoli = $conf['titoli']; ?>
     <div class="span6">

@@ -180,6 +180,17 @@ if ($rf) {
             <h4><i class="icon-folder-open"></i> Hai già caricato i tuoi documenti?</h4>
             <p>Ricordati di caricare i tuoi documenti dalla sezione <strong>Documenti</strong>.</p>
         </div>
+        <!-- invogliamo a fare servizio -->
+        <div class="alert alert-block alert-success">
+            <h4><i class="icon-puzzle-piece"></i> Statistiche personali</h4>
+            Le statistiche vengono aggiornate ogni settimana
+            <?php if (count($me->nTurni)>0){ ?>
+              <p>Hai partecipato a <strong><?php echo $me->nTurni(); ?></strong> partecipazioni alle attività</p>
+              <p>Ti trovi in <strong><?php echo $me->posizione(); ?></strong> posizione per il numero di turni effettuati questo mese.</p>
+            <?php }else{ ?>
+              <p>Attenzione non hai effettuato turni nel mese attuale!!!</p>
+            <?php } ?>
+        </div>
     </div>
 </div>
 

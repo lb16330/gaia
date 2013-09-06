@@ -32,6 +32,16 @@ paginaAdmin();
                 <i class="icon-money"></i>
                 Paga quote associative
             </a>
+            <hr/>
+            <div class='alert alert-danger'>
+                <strong>Script per le statistiche personali</strong>
+                <p>Questo script genera le statistiche personali del volontario<br/>
+                Attenzione lo script impiega mediamente 15 minuti ad essere eseguito!!!</p>
+            </div>
+            <a href="?p=admin.statistiche" class="btn btn-large btn-danger">
+                <i class="icon-puzzle-piece"></i>
+                Genera statistiche
+            </a>
         </div>
         
         <div class="span6 centrato">

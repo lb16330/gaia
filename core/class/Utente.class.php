@@ -845,5 +845,14 @@ class Utente extends Persona {
         }
         return $r;
     }
-    
+
+    public function nTurni() {
+        $t = Statistiche::by('volontario', $this->id);
+        return $t->nTurni;
+    }
+
+    public function posizione() {
+        $t = Statistiche::by('volontario', $this->id);
+        return $t->pos;
+    }
 }
